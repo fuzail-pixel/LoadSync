@@ -1,0 +1,84 @@
+### GET all bookings
+GET http://localhost:8080/booking
+
+### GET booking by ID
+GET http://localhost:8080/booking/replace-with-valid-booking-uuid
+
+### DELETE booking by ID
+DELETE http://localhost:8080/booking/replace-with-valid-booking-uuid
+
+### POST new booking (BookingDTO format)
+POST http://localhost:8080/booking
+Content-Type: application/json
+
+{
+  "loadId": "replace-with-valid-load-uuid",
+  "transporterId": "trans001",
+  "proposedRate": 25000.50,
+  "comment": "Urgent delivery"
+}
+
+### GET all loads
+GET http://localhost:8080/api/loads
+
+### GET load by ID
+GET http://localhost:8080/api/loads/replace-with-valid-load-uuid
+
+### DELETE load by ID
+DELETE http://localhost:8080/api/loads/replace-with-valid-load-uuid
+
+### POST a single Load (LoadDTO)
+POST http://localhost:8080/api/loads
+Content-Type: application/json
+
+{
+  "loadNumber": "L003",
+  "material": "Iron Rods",
+  "weight": 4000,
+  "source": "Bhilai",
+  "destination": "Ranchi",
+  "status": "Pending"
+}
+
+### POST multiple Loads (array of LoadDTOs)
+POST http://localhost:8080/api/loads
+Content-Type: application/json
+
+[
+  {
+    "loadNumber": "L001",
+    "material": "Steel",
+    "weight": 5000,
+    "source": "Jamshedpur",
+    "destination": "Kolkata",
+    "status": "In Transit"
+  },
+  {
+    "loadNumber": "L002",
+    "material": "Cement",
+    "weight": 3000,
+    "source": "Nagpur",
+    "destination": "Hyderabad",
+    "status": "Dispatched"
+  }
+]
+
+### Upload schedulers JSON file
+POST http://localhost:8080/api/schedulers/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="schedulers.json"
+Content-Type: application/json
+
+< C:\Users\qazif\AppData\Local\Temp\http_request_input_file6.txt
+--WebAppBoundary--
+
+### GET all schedulers
+GET http://localhost:8080/api/schedulers
+
+### GET scheduler by ID
+GET http://localhost:8080/api/schedulers/1
+
+### DELETE scheduler by ID
+DELETE http://localhost:8080/api/schedulers/1
